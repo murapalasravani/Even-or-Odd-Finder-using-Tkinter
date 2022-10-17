@@ -1,0 +1,22 @@
+'''
+THIS IS GONNA CREATE GUI TO TELL US WHETHER A NUMBER IS AN EVEN OR AN ODD USING PYTHON TKINTER
+'''
+from tkinter import *		#tkinter importing
+obj=Tk()			#object for tinkter class
+obj.title("Even Odd Tester")
+obj.geometry("355x370")		#window's width and height
+g=Label(obj,text='Enter number',bg='yellow',font=('Helvetica 20 bold')).grid(row=5,column=15,padx=25,pady=25)	#Enter number label
+e=Entry(obj,bg='green',justify='center',width=20,fg='white',font=('Helvetica 20 bold'))		#for taking input
+e.focus()		#cursor directed to input
+e.grid(row=15,column=15,padx=25,pady=25)  	#setting place
+def evod():		#testing odd or even function
+	n=e.get()		#get the input to n
+	n=int(float(n))		#converting input to float and then to int which is a string by default
+	e.delete(0,END)		#delete input once clicked
+	if n%2==0:      
+		l=Label(obj,text='EVEN',font=('Helvetica 20 bold')).grid(row=35,column=15,padx=25,pady=25) 
+	else:
+		l=Label(obj,text='ODD',font=('Helvetica 20 bold')).grid(row=35,column=15,padx=25,pady=25)
+but=Button(obj,text='click',bg='orange',fg='black',command=evod,font=('Helvetica 20 bold'))	#command is to call the evod function when button clicked
+but.grid(row=25,column=15,padx=25,pady=25)
+obj.mainloop()		#method that executes when we want to run the program
